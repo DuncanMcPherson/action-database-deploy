@@ -1,0 +1,21 @@
+name: Deploy to Firebase Database
+description: A github action to deploy database rules to firebase
+runs:
+  using: node20
+  main: bin/action.min.js
+inputs:
+  firebaseServiceAccount:
+    description: Firebase service account file
+    required: true
+  projectId:
+    description: If this is left blank, make sure that your .firebaserc file is checked in to the repo
+    required: false
+  firebaseToolsVersion:
+    description: >-
+      The version of firebase-tools to use. Defaults to 'latest'
+    default: latest
+    required: false
+  entryPoint:
+    description: The location of your firebase.json in regards to where the runner runs the action from. Defaults to '.'
+    default: .
+    required: false
