@@ -8,12 +8,8 @@
     "format": "prettier --write .",
     "build": "microbundle --format cjs --target node --no-compress --no-sourcemap src/index.ts",
     "build:watch": "microbundle --format cjs --target node --no-compress --watch --no-sourcemap src/index.ts",
-    "test": "jest"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "pretty-quick --staged && npm run build"
-    }
+    "test": "jest",
+    "prepare": "husky"
   },
   "repository": {
     "type": "git",
@@ -36,7 +32,7 @@
     "@types/jest": "^29.5.1",
     "@types/tmp": "^0.2.3",
     "babel-jest": "^29.5.0",
-    "husky": "^8.0.3",
+    "husky": "^9.0.11",
     "jest": "^29.5.0",
     "microbundle": "^0.15.1",
     "prettier": "^2.8.7",
