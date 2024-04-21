@@ -74,7 +74,7 @@ export async function deployRules(
 ) {
   const { projectId, version, firebaseToolsVersion } = deployConfig;
   const deploymentText = await execWithCredentials(
-    ["deploy:rules", "--only", "firestore.rules"],
+    ["deploy", "--only", "database"],
     projectId,
     gacFilename,
     { firebaseToolsVersion }
