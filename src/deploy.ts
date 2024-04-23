@@ -27,13 +27,6 @@ async function execWithCredentials(
   const debug = opts?.debug || false
   const toolsVersion = opts?.firebaseToolsVersion || 'latest';
   try {
-    await exec(`gcloud auth application-default login`, [], {
-      listeners: {
-        stdout(data: Buffer) {
-          deployOutputBuf.push(data);
-        }
-      }
-    })
     await exec(
       `npx firebase-tools@${toolsVersion}`,
       [
