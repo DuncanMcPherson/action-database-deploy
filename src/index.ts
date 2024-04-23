@@ -19,6 +19,7 @@ const googleCredentials = getInput("firebaseServiceAccount", {
 });
 const firebaseToolsVersion = getInput('firebaseToolsVersion');
 const entryPoint = getInput('entryPoint');
+const ciToken = getInput("repoToken");
 
 async function run() {
   const isPullRequest = !!context.payload.pull_request;
@@ -54,7 +55,8 @@ async function run() {
     startGroup("Deploying rules");
     const deployment = await deployRules(gacFileName, {
       projectId,
-      firebaseToolsVersion
+      firebaseToolsVersion,
+      ciToken
     });
 
     if (deployment.status === 'error') {

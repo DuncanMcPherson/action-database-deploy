@@ -7,7 +7,7 @@ export type SuccessResult = {
 };
 type DeployConfig = {
     projectId: string;
-    version?: string;
+    ciToken: string;
     firebaseToolsVersion?: string;
 };
 export type ProductionDeployConfig = DeployConfig & {};

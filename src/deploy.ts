@@ -11,7 +11,7 @@ export type SuccessResult = {
 
 type DeployConfig = {
   projectId: string;
-  version?: string;
+  ciToken: string;
   firebaseToolsVersion?: string
 }
 
@@ -79,9 +79,9 @@ export async function deployRules(
   gacFilename: string,
   deployConfig: ProductionDeployConfig
 ) {
-  const { projectId, version, firebaseToolsVersion } = deployConfig;
+  const { projectId, firebaseToolsVersion, ciToken } = deployConfig;
   const deploymentText = await execWithCredentials(
-    ["deploy", "--only", "database"],
+    ["deploy", "--only", "database", "--token", ciToken],
     projectId,
     gacFilename,
     { firebaseToolsVersion }
